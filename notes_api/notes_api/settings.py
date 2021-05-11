@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'accounts',
+    'notes'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,7 @@ STATIC_URL = '/static/'
 CORS_ALLOWED_ORIGINS = [
 
 ]
+
+
+# user auth model settings
+AUTH_USER_MODEL = 'accounts.User'
