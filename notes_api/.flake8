@@ -1,6 +1,6 @@
 [flake8]
 exclude = 
-    notes_api/accounts/migrations,
+    migrations,
     __pycache__,
     manage.py,
-    notes_api/settings.py
+    settings.py
