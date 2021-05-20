@@ -1,2 +1,18 @@
-# notes-backend
- Backend for notes web-app using Django and Django-REST-Framework
+
+# Note-Web-App Backend API
+
+A brief description of what this project does and who it's for
+
+
+## Installation 
+
+Install my-project 
+
+```bash 
+  docker-compose build
+```
+
+```bash 
+  docker-compose up
+```
+    
