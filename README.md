@@ -29,7 +29,7 @@ A brief description of what this project does and who it's for
 #### Create/Register
 
 ```http
-  POST api/user/create
+  POST api/user/create/
 ```
 
 | Parameter | Type     | Description                |
@@ -42,7 +42,7 @@ A brief description of what this project does and who it's for
 #### Authenticate User
 
 ```http
-  POST /api/user/
+  POST /api/user/token/
 ```
 
 | Parameter | Type     | Description                       |
