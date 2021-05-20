@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Backend Test
-        run: docker-compose run  --rm app sh -c "python3 notes_api/manage.py test"
+        run: docker-compose run --rm backend sh -c "python3 manage.py test"
 
   notes-backend-lint:
     name: Lint
@@ -20,4 +20,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: lint
-        run: docker-compose run --rm app sh -c "flake8"
+        run: docker-compose run --rm backend sh -c "flake8"
