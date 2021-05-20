@@ -3,4 +3,4 @@ python:
   - "3.6"
 
 script:
-  - python3 notes_api/manage.py test
+  - python3 manage.py test
