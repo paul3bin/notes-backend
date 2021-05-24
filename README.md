@@ -1,7 +1,7 @@
 
 # Note-Web-App Backend API
 
-A brief description of what this project does and who it's for
+A backend for [Notes-Web-App](https://github.com/paul3bin/notes-web-app) using Django and Django-REST-Framework
 
 
 ## Installation 
