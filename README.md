@@ -29,7 +29,7 @@ A backend for [Notes-Web-App](https://github.com/paul3bin/notes-web-app) using D
 #### Create/Register
 
 ```http
-  POST api/user/create/
+  POST api/user/create
 ```
 
 | Parameter | Type     | Description                |
@@ -42,7 +42,7 @@ A backend for [Notes-Web-App](https://github.com/paul3bin/notes-web-app) using D
 #### Authenticate User
 
 ```http
-  POST /api/user/token/
+  POST /api/user/token
 ```
 
 | Parameter | Type     | Description                       |
