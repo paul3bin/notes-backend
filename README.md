@@ -29,7 +29,7 @@ A backend for [Notes-Web-App](https://github.com/paul3bin/notes-web-app) using D
 #### Create/Register
 
 ```http
-  POST api/user/create
+  POST /api/user/create
 ```
 
 | Parameter | Type     | Description                |
