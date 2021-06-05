@@ -146,6 +146,7 @@ STATIC_URL = '/static/'
 # Django CORS Settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://take-notes-web-app.web.app",
 ]
 
 
