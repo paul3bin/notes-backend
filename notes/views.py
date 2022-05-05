@@ -30,7 +30,10 @@ class NotesViewSet(viewsets.ModelViewSet):
 
     def update(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
-        serializer = serializers.NotesSerializer(instance=note, data=request.data)
+        serializer = serializers.NotesSerializer(
+            instance=note,
+            data=request.data
+        )
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
@@ -38,4 +41,7 @@ class NotesViewSet(viewsets.ModelViewSet):
     def destroy(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
         note.delete()
-        return Response({"message": "Note deleted"}, status=status.HTTP_202_ACCEPTED)
+        return Response({
+            "message": "Note deleted"
+            }, status=status.HTTP_202_ACCEPTED
+        )
