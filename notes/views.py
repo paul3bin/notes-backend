@@ -1,9 +1,9 @@
+from rest_framework import status, viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from . import serializers, models
+from . import models, serializers
 
 
 class NotesViewSet(viewsets.ModelViewSet):
@@ -30,8 +30,7 @@ class NotesViewSet(viewsets.ModelViewSet):
 
     def update(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
-        serializer = serializers.NotesSerializer(
-            instance=note, data=request.data)
+        serializer = serializers.NotesSerializer(instance=note, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
@@ -39,5 +38,4 @@ class NotesViewSet(viewsets.ModelViewSet):
     def destroy(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
         note.delete()
-        return Response({"message": "Note deleted"},
-                        status=status.HTTP_202_ACCEPTED)
+        return Response({"message": "Note deleted"}, status=status.HTTP_202_ACCEPTED)

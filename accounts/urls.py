@@ -2,9 +2,9 @@ from django.urls import path
 
 from . import views
 
-app_name = 'accounts'
+app_name = "accounts"
 
 urlpatterns = [
-    path('create', views.CreateUserView.as_view(), name='create'),
-    path('token', views.CreateTokenView.as_view(), name='token'),
+    path("create", views.CreateUserView.as_view(), name="create"),
+    path("token", views.CreateTokenView.as_view(), name="token"),
 ]
