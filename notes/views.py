@@ -15,7 +15,7 @@ class NotesViewSet(viewsets.ModelViewSet):
     def list(self, request):
         notes = models.Notes.objects.all().filter(user=request.user)
         serializer = serializers.NotesSerializer(notes, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):
         serializer = serializers.NotesSerializer(data=request.data)
@@ -26,14 +26,11 @@ class NotesViewSet(viewsets.ModelViewSet):
     def retrieve(self, request, pk=None):
         note = models.Notes.objects.filter(id=pk)
         serializer = serializers.NotesSerializer(instance=note, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def update(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
-        serializer = serializers.NotesSerializer(
-            instance=note,
-            data=request.data
-        )
+        serializer = serializers.NotesSerializer(instance=note, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
@@ -41,7 +38,5 @@ class NotesViewSet(viewsets.ModelViewSet):
     def destroy(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
         note.delete()
-        return Response({
-            "message": "Note deleted"
-            }, status=status.HTTP_202_ACCEPTED
-        )
+        resp = {"message": "Note deleted"}
+        return Response(resp, status=status.HTTP_202_ACCEPTED)
