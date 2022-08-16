@@ -30,7 +30,8 @@ class NotesViewSet(viewsets.ModelViewSet):
 
     def update(self, request, pk=None):
         note = models.Notes.objects.get(id=pk)
-        serializer = serializers.NotesSerializer(instance=note, data=request.data)
+        note_data = request.data
+        serializer = serializers.NotesSerializer(instance=note, data=note_data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
