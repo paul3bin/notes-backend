@@ -90,8 +90,8 @@ class PublicApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
         # checking whether user exists or not
-        user_exists = get_user_model().objects.filter(email=payload["email"]).exists()
-        self.assertFalse(user_exists)
+        user_exists = get_user_model().objects.filter(email=payload["email"])
+        self.assertFalse(user_exists.exists())
 
     def test_create_token_for_user(self):
         # to test that a token is created for the user
