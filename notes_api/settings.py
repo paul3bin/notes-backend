@@ -31,6 +31,10 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="127.0.0.1", cast=Csv())
 
+CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", default="127.0.0.1", cast=Csv())
+
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", default="127.0.0.1", cast=Csv())
+
 
 # Application definition
 
@@ -145,11 +149,6 @@ MEDIA_URL = "/static/media/"
 
 STATIC_ROOT = "/vol/web/static"
 MEDIA_ROOT = "/vol/web/media"
-
-
-# Django CORS Settings
-CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", default="127.0.0.1", cast=Csv())
-
 
 # user auth model settings
 AUTH_USER_MODEL = "accounts.User"
