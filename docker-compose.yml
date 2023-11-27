@@ -10,7 +10,9 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
-    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python3 manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000
+      "
     environment:
       - DEBUG=1
       - DJANGO_SUPERUSER_EMAIL=testemail@example.com
