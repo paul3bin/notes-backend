@@ -17,4 +17,4 @@ RUN mkdir -p /vol/web/media
 RUN mkdir -p /vol/web/static
 
 
-CMD ["entrypoint.sh"]
+EXPOSE 8000
