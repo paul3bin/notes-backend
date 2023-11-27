@@ -12,3 +12,21 @@ services:
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
     environment:
       - DEBUG=1
+      - DJANGO_SUPERUSER_EMAIL=testemail@example.com
+      - DJANGO_SUPERUSER_PASSWORD=testpass
+      - DB_HOST=notes_db
+      - DB_NAME=notes_app_db
+      - DB_USER=postgres
+      - DB_PASSWORD=supersecretpassword
+      - DB_PORT=5432
+
+  db:
+    restart: "unless-stopped"
+    container_name: notes_db
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_DB=notes_app_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=supersecretpassword
+    ports:
+      - "5432:5432"
